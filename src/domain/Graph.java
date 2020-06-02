@@ -4,35 +4,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Graph {
-	public List <Vertex> graph = new ArrayList<>();
+	private List<Vertex> vertexes = new ArrayList<>();
+	private List<Edge> edges = new ArrayList<>();
 
-	public Graph(List<Vertex> graph) {
-		this.graph = graph;
-	}
-
-	public void addOneDirectionEdge(Vertex origin, Vertex destiny, double weight) {
-		Vertex v1 = findVertex(origin);
-		v1.addConnection(destiny, weight);
+	public Graph(List<Vertex> vertexes, List<Edge> edges) {
+		this.vertexes = vertexes;
+		this.edges = edges;
 	}
 
 	public int vertexNumber() {
-		return graph.size();
+		return vertexes.size();
 	}
 	
+	public void addVertexes(Vertex toBeAdded) {
+		this.vertexes.add(toBeAdded);
+	}
+
+	public void addUniDirectionalEdge(Vertex source, Vertex destiny, double weight) {
+		Edge toBeAdded = new Edge(source,destiny,weight);
+		edges.add(toBeAdded);
+	}
+
 	public void addBiDirectionalEdge(Vertex x, Vertex y, double weight) {
-		Vertex v1 = findVertex(x);
-		v1.addConnection(y, weight);
+		Edge toBeAdded = new Edge(x,y,weight);
+		edges.add(toBeAdded);
 		
-		Vertex v2 = findVertex(y);
-		v2.addConnection(x, weight);
+		Edge toBeAddedSecond = new Edge(y,x,weight);
+		edges.add(toBeAddedSecond);
+	}
+
+	public List<Vertex> getVertexes() {
+		return vertexes;
 	}
 	
-	public Vertex findVertex(Vertex v) {
-		for (Vertex ver : graph) {
-			if (v.equals(ver)) {
-				return ver;
-			}
+	public List<Vertex> getIndexedVertexes() {
+		int count = 0;
+		for( Vertex v : vertexes) {
+			v.setPosition(count++);
 		}
-		return null;
+		return vertexes;
+	}
+
+	public List<Edge> getEdges() {
+		return edges;
 	}
 }

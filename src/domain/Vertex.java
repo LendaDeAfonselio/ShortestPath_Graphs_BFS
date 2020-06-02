@@ -3,35 +3,31 @@
  */
 package domain;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Class that represents a vertex of a graph
  *
  */
 public class Vertex {
 	private String label;
-	private Map<Vertex, Double> connections = new HashMap<>();
+	private int position;
 
 	public Vertex(String label) {
 		this.label = label;
 	}
 	
-	public Vertex(String label, Map<Vertex, Double> connections) {
+	public Vertex(String label, int position) {
 		this.label = label;
-		this.connections = connections;
+		this.position = position;
 	}
 
-	public Vertex addConnection(Vertex y, double weight) {
-		connections.put(y, weight);
-		return this;
+	public void setPosition(int position) {
+		this.position = position;
 	}
 	
-	public Map<Vertex, Double> getOutgoingEdges(){
-		return connections;
+	public int getPosition() {
+		return position;
 	}
-	
+
 	public String getLabel() {
 		return label;
 	}
