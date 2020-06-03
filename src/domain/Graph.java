@@ -7,6 +7,10 @@ public class Graph {
 	private List<Vertex> vertexes = new ArrayList<>();
 	private List<Edge> edges = new ArrayList<>();
 
+	public Graph() {
+		// Nothing
+	}
+	
 	public Graph(List<Vertex> vertexes, List<Edge> edges) {
 		this.vertexes = vertexes;
 		this.edges = edges;
@@ -16,7 +20,7 @@ public class Graph {
 		return vertexes.size();
 	}
 	
-	public void addVertexes(Vertex toBeAdded) {
+	public void addVertex(Vertex toBeAdded) {
 		this.vertexes.add(toBeAdded);
 	}
 
@@ -48,4 +52,17 @@ public class Graph {
 	public List<Edge> getEdges() {
 		return edges;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Vertexes:" + vertexes + "\n");
+		sb.append("Edges:\n");
+		for(Edge e : edges) {
+			sb.append(e + "\n");
+		}
+		return sb.toString();
+	}
+	
+	
 }

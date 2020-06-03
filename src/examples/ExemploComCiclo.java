@@ -6,10 +6,12 @@ import algorithm.BellmanFordAlgorithm;
 import domain.Edge;
 import domain.Graph;
 import domain.Vertex;
+import inputgenerator.RandomGraphCreator;
 
 public class ExemploComCiclo {
 
 	public static void main(String[] args) throws Exception {
+		
 		BellmanFordAlgorithm bfa = new BellmanFordAlgorithm();
 
 		// cycle loop example - Should throw exception

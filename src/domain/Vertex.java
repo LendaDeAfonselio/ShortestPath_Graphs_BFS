@@ -39,4 +39,9 @@ public class Vertex {
 		Vertex comp = (Vertex) o;
 		return comp.label.equals(label);
 	}
+	
+	@Override
+	public String toString() {
+		return label;
+	}
 }

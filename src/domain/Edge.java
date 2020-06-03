@@ -29,5 +29,15 @@ public class Edge {
 	public double getWeight() {
 		return weight;
 	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(source.toString());
+		
+		sb.append(String.format("---- %.3f ---->",weight ));
+		sb.append(destiny.toString());
+		
+		return sb.toString();
+	}
 
 }
