@@ -8,8 +8,8 @@ import domain.Vertex;
 
 public class BellmanFordAlgorithm {
 	public double[] getShortestPath(Vertex init, Graph graph) throws Exception {
-		// setup
 		
+		// setup		
 		int graphLength = graph.vertexNumber();
 		double infinity = Double.POSITIVE_INFINITY;
 		double[] distances = new double[graphLength];
@@ -34,7 +34,6 @@ public class BellmanFordAlgorithm {
 		// o valor atual - currentdistance - nao for infinito
 		// currentdistance + o peso da aresta atual sao menores do que as que estao
 		// guardadas na posicao do destino
-
 		boolean changesFromPreviousIteration = true;
 	
 		for (Vertex v : vertexList) {

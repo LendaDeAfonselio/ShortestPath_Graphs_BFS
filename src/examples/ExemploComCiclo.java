@@ -6,7 +6,6 @@ import algorithm.BellmanFordAlgorithm;
 import domain.Edge;
 import domain.Graph;
 import domain.Vertex;
-import inputgenerator.RandomGraphCreator;
 
 public class ExemploComCiclo {
 

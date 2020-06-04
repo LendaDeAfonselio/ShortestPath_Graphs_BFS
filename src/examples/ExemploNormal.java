@@ -38,7 +38,7 @@ public class ExemploNormal {
 		edges.add(bc);
 
 		Graph graph = new Graph(verts, edges);
-
+		
 		double[] result = bfa.getShortestPath(a, graph);
 		int i = 0;
 		for (Vertex v : verts) {
