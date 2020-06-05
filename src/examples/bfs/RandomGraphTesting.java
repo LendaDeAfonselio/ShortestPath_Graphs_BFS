@@ -13,7 +13,7 @@ import inputgenerator.RandomGraphCreator;
 public class RandomGraphTesting {
 	public static void main(String[] args) throws Exception {
 		BreadthFirstSearch bfs = new BreadthFirstSearch();
-		GraphBFS random_graph = RandomGraphCreator.createRandomGraph(15);
+		GraphBFS random_graph = RandomGraphCreator.createRandomGraph(1000);
 		System.out.println("Generated Graph:");
 		System.out.println(random_graph);
 		Vertex init = random_graph.getVertexes().get(0);
@@ -24,7 +24,6 @@ public class RandomGraphTesting {
 		double[] distances = new double[random_graph.vertexNumber()];
 		bfs.BreadFirstSearch(random_graph, init, random_graph.vertexNumber(), pred, path, distances);
 		for (int j = 0; j < distances.length; j++) {
-
 			System.out.println(String.format("The optimal path from %s to %s with path %s and has cost %.2f", init,
 					random_graph.getVertexes().get(j).toString(),
 					path.get(j).stream().sorted((v1, v2) -> v1.getPosition() < v2.getPosition() ? -1 : 0)
