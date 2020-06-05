@@ -3,6 +3,9 @@
  */
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class that represents a vertex of a graph
  *
@@ -10,6 +13,7 @@ package domain;
 public class Vertex {
 	private String label;
 	private int position;
+	private List<Edge> outgoing = new ArrayList<>();
 
 	public Vertex(String label) {
 		this.label = label;
@@ -18,6 +22,12 @@ public class Vertex {
 	public Vertex(String label, int position) {
 		this.label = label;
 		this.position = position;
+	}
+
+	public Vertex(String label, int position, List<Edge> outgoing) {
+		this.label = label;
+		this.position = position;
+		this.outgoing = outgoing;
 	}
 
 	public void setPosition(int position) {
@@ -40,6 +50,14 @@ public class Vertex {
 		return comp.label.equals(label);
 	}
 	
+	public List<Edge> getOutgoing() {
+		return outgoing;
+	}
+
+	public void addOutgoingEdge(Edge e) {
+		this.outgoing.add(e);
+	}
+
 	@Override
 	public String toString() {
 		return label;

@@ -1,4 +1,4 @@
-package examples;
+package examples.bfa;
 
 import java.util.ArrayList;
 
