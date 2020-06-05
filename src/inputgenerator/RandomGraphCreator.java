@@ -5,21 +5,21 @@ import java.util.List;
 import java.util.Random;
 
 import domain.Edge;
-import domain.Graph;
+import domain.GraphBFS;
 import domain.Vertex;
 
 public class RandomGraphCreator {
 	private static double max_weight = 5000;
 
-	public static Graph createRandomGraph(int vertex_number) {
+	public static GraphBFS createRandomGraph(int vertex_number) {
 		List<Vertex> randomVertexList = new ArrayList<>();
 		for (int i = 0; i < vertex_number; i++) {
-			Vertex v = new Vertex(Integer.toString(i));
+			Vertex v = new Vertex(Integer.toString(i),i);
 			randomVertexList.add(v);
 		}
+		GraphBFS graph = new GraphBFS(randomVertexList);
 
 		List<Edge> random_edges = new ArrayList<>();
-		// para tamanho 5, usar a seeds 5 nao eh mau
 		Random r = new Random();
 
 		for (Vertex x : randomVertexList) {
@@ -55,11 +55,11 @@ public class RandomGraphCreator {
 						retries ++;
 					}
 					
-					Edge new_edge = new Edge(src, dest, weight);
-					random_edges.add(new_edge);
+					random_edges.add(new Edge(src, dest, weight));
+					graph.addUniDirectionalEdge(src, dest, weight);
 				}
 			}
 		}
-		return new Graph(randomVertexList, random_edges);
+		return graph;
 	}
 }

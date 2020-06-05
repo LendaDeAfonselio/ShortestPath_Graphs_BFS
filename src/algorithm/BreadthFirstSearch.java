@@ -54,24 +54,24 @@ public class BreadthFirstSearch {
 				Vertex toBeVisitedNode = e.getDestiny();
 				int toBeVisitedNodeIndex = toBeVisitedNode.getPosition();
 				double current = distances[currentVertexPosition] + e.getWeight();
-
+				Set<Vertex> currentPath = paths.get(currentVertexPosition);
 				if (e.getDestiny() != src) {
 					// avoid repeated nodes
 					if (!visited[toBeVisitedNodeIndex] || (current < distances[toBeVisitedNodeIndex]
-							&& !predecessors[toBeVisitedNodeIndex].equals(vertex))) {
+							&& !predecessors[toBeVisitedNodeIndex].equals(vertex) && !currentPath.contains(toBeVisitedNode))) {
 						visited[toBeVisitedNodeIndex] = true;
 						distances[toBeVisitedNodeIndex] = current;
 						predecessors[toBeVisitedNodeIndex] = vertex;
 						queue.add(toBeVisitedNode);
 
-						Set<Vertex> currentPath = new HashSet<>(paths.get(currentVertexPosition));
-						if (!currentPath.add(vertex)) {
+						Set<Vertex> currentPathCopy = new HashSet<>(currentPath);
+						if (!currentPathCopy.add(vertex)) {
 							System.err.println("F");
 						}
-						paths.set(toBeVisitedNodeIndex, currentPath);
+						paths.set(toBeVisitedNodeIndex, currentPathCopy);
 					}
 				}
-				
+
 			}
 		}
 		return;
