@@ -9,26 +9,31 @@ import algorithm.BreadthFirstSearch;
 import domain.GraphBFS;
 import domain.Vertex;
 
-public class ExemploNormal {
+public class ExemploComCiclo {
 	public static void main(String[] args) {
-		// cycle loop example - Should throw exception
-		Vertex a = new Vertex("a", 0);
-		Vertex b = new Vertex("b", 1);
-		Vertex c = new Vertex("c", 2);
-		Vertex d = new Vertex("d", 3);
+
+		Vertex a = new Vertex("a");
+		Vertex b = new Vertex("b");
+		Vertex c = new Vertex("c");
+		Vertex d = new Vertex("d");
+		Vertex e = new Vertex("e");
+		Vertex f = new Vertex("f");
 
 		ArrayList<Vertex> verts = new ArrayList<>();
 		verts.add(a);
 		verts.add(b);
 		verts.add(c);
 		verts.add(d);
+		verts.add(f);
+		verts.add(e);
 
 		GraphBFS graph = new GraphBFS(verts);
-		graph.addUniDirectionalEdge(a, c, 0);
-		graph.addUniDirectionalEdge(d, b, -300);
-		graph.addUniDirectionalEdge(a, d, 99);
-		graph.addUniDirectionalEdge(a, b, 1);
-		graph.addUniDirectionalEdge(b, c, 1);
+		graph.getIndexedVertexes();
+		graph.addUniDirectionalEdge(a, c, 14);
+		graph.addUniDirectionalEdge(c, d, -8);
+		graph.addUniDirectionalEdge(d, e, 2);
+		graph.addUniDirectionalEdge(e, f, 9);
+		graph.addUniDirectionalEdge(e, c, 5);
 
 		System.out.println("Graph:");
 		System.out.println(graph);
@@ -45,6 +50,5 @@ public class ExemploNormal {
 					graph.getVertexes().get(j).toString(),
 					path.get(j).stream().sorted((v1,v2) -> v1.getPosition() < v2.getPosition() ? -1:0).map(s -> s.toString()).collect(Collectors.joining("-->")), distances[j]));
 		}
-
 	}
 }

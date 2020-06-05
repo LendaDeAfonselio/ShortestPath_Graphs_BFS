@@ -23,8 +23,6 @@ public class Vertex {
 		this.label = label;
 		this.position = position;
 	}
-	
-	
 
 	public Vertex(String label, int position, List<Edge> outgoing) {
 		this.label = label;
