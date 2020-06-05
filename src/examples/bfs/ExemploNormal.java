@@ -34,7 +34,7 @@ public class ExemploNormal {
 		System.out.println(graph);
 
 		BreadthFirstSearch bfs = new BreadthFirstSearch();
-		
+
 		List<Set<Vertex>> path = new ArrayList<>();
 		Vertex[] pred = new Vertex[graph.vertexNumber()];
 		double[] distances = new double[graph.vertexNumber()];
@@ -43,7 +43,9 @@ public class ExemploNormal {
 		for (int j = 0; j < distances.length; j++) {
 			System.out.println(String.format("The optimal path from %s to %s with path %s and has cost %.2f", a,
 					graph.getVertexes().get(j).toString(),
-					path.get(j).stream().sorted((v1,v2) -> v1.getPosition() < v2.getPosition() ? -1:0).map(s -> s.toString()).collect(Collectors.joining("-->")), distances[j]));
+					path.get(j).stream().sorted((v1, v2) -> v1.getPosition() < v2.getPosition() ? -1 : 0)
+							.map(s -> s.toString()).collect(Collectors.joining("-->")),
+					distances[j]));
 		}
 
 	}
