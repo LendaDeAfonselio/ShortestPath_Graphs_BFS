@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Set;
 
 import domain.Edge;
-import domain.GraphBFS;
+import domain.Graph;
 import domain.Vertex;
 
 public class BreadthFirstSearch {
 
-	public void BreadFirstSearch(GraphBFS graph, Vertex src, int totalVertexNumber, Vertex predecessors[],
+	public void BreadFirstSearch(Graph graph, Vertex src, int totalVertexNumber, Vertex predecessors[],
 			List<Set<Vertex>> paths, double distances[]) {
 
 		for (int i = 0; i < totalVertexNumber; i++) {

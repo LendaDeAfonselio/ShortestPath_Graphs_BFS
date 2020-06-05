@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import algorithm.BreadthFirstSearch;
-import domain.GraphBFS;
+import domain.Graph;
 import domain.Vertex;
 
 public class ExemploComCiclo {
@@ -27,7 +27,7 @@ public class ExemploComCiclo {
 		verts.add(f);
 		verts.add(e);
 
-		GraphBFS graph = new GraphBFS(verts);
+		Graph graph = new Graph(verts);
 		graph.getIndexedVertexes();
 		graph.addUniDirectionalEdge(a, c, 14);
 		graph.addUniDirectionalEdge(c, d, -8);

@@ -7,19 +7,19 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 import domain.Edge;
-import domain.GraphBFS;
+import domain.Graph;
 import domain.Vertex;
 
 public class RandomGraphCreator {
 	private static double max_weight = 5000;
 	
-	public static GraphBFS createRandomGraph(int vertex_number) {
+	public static Graph createRandomGraph(int vertex_number) {
 		List<Vertex> randomVertexList = new ArrayList<>();
 		for (int i = 0; i < vertex_number; i++) {
 			Vertex v = new Vertex(Integer.toString(i),i);
 			randomVertexList.add(v);
 		}
-		GraphBFS graph = new GraphBFS(randomVertexList);
+		Graph graph = new Graph(randomVertexList);
 
 		List<Edge> random_edges = new ArrayList<>();
 		Random r = new Random(2);
@@ -67,13 +67,13 @@ public class RandomGraphCreator {
 		return graph;
 	}
 	
-	public static GraphBFS createRandomGraphParallel(int vertex_number) {
+	public static Graph createRandomGraphParallel(int vertex_number) {
 		List<Vertex> randomVertexList = Collections.synchronizedList(new ArrayList<>());
 		for (int i = 0; i < vertex_number; i++) {
 			Vertex v = new Vertex(Integer.toString(i), i);
 			randomVertexList.add(v);
 		}
-		GraphBFS graph = new GraphBFS(randomVertexList);
+		Graph graph = new Graph(randomVertexList);
 
 		List<Edge> random_edges = Collections.synchronizedList(new ArrayList<>());
 		Random r = new Random();

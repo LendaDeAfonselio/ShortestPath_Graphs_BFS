@@ -6,14 +6,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import algorithm.BreadthFirstSearch;
-import domain.GraphBFS;
+import domain.Graph;
 import domain.Vertex;
 import inputgenerator.RandomGraphCreator;
 
 public class RandomGraphTesting {
 	public static void main(String[] args) throws Exception {
 		BreadthFirstSearch bfs = new BreadthFirstSearch();
-		GraphBFS random_graph = RandomGraphCreator.createRandomGraph(5);
+		Graph random_graph = RandomGraphCreator.createRandomGraph(5);
 		System.out.println("Generated Graph:");
 		System.out.println(random_graph);
 		Vertex init = random_graph.getVertexes().get(0);

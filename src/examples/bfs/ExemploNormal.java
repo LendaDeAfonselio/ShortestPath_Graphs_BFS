@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import algorithm.BreadthFirstSearch;
-import domain.GraphBFS;
+import domain.Graph;
 import domain.Vertex;
 
 public class ExemploNormal {
@@ -23,7 +23,7 @@ public class ExemploNormal {
 		verts.add(c);
 		verts.add(d);
 
-		GraphBFS graph = new GraphBFS(verts);
+		Graph graph = new Graph(verts);
 		graph.addUniDirectionalEdge(a, c, 0);
 		graph.addUniDirectionalEdge(d, b, -300);
 		graph.addUniDirectionalEdge(a, d, 99);
