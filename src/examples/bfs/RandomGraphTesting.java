@@ -13,7 +13,7 @@ import inputgenerator.RandomGraphCreator;
 public class RandomGraphTesting {
 	public static void main(String[] args) throws Exception {
 		BreadthFirstSearch bfs = new BreadthFirstSearch();
-		GraphBFS random_graph = RandomGraphCreator.createRandomGraph(1000);
+		GraphBFS random_graph = RandomGraphCreator.createRandomGraph(5);
 		System.out.println("Generated Graph:");
 		System.out.println(random_graph);
 		Vertex init = random_graph.getVertexes().get(0);
