@@ -43,14 +43,6 @@ public class Vertex {
 		Vertex comp = (Vertex) o;
 		return comp.label.equals(label);
 	}
-	
-	public List<Edge> getOutgoing() {
-		return outgoing;
-	}
-
-	public void addOutgoingEdge(Edge e) {
-		this.outgoing.add(e);
-	}
 
 	@Override
 	public String toString() {
