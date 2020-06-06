@@ -13,7 +13,6 @@ import java.util.List;
 public class Vertex {
 	private String label;
 	private int position;
-	private List<Edge> outgoing = new ArrayList<>();
 
 	public Vertex(String label) {
 		this.label = label;
@@ -23,12 +22,7 @@ public class Vertex {
 		this.label = label;
 		this.position = position;
 	}
-
-	public Vertex(String label, int position, List<Edge> outgoing) {
-		this.label = label;
-		this.position = position;
-		this.outgoing = outgoing;
-	}
+	// getters, setters, equals...
 
 	public void setPosition(int position) {
 		this.position = position;

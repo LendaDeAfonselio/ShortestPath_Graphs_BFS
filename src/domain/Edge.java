@@ -18,6 +18,8 @@ public class Edge {
 		this.weight = weight;
 	}
 
+	// getters, setters, etc
+
 	public Vertex getSource() {
 		return source;
 	}

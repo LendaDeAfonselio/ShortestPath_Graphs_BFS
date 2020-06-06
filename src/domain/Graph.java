@@ -17,6 +17,8 @@ public class Graph {
 		}
 	}
 
+	// outros mehtodos auxiliares
+
 	public Graph(List<Vertex> vertexes, List<Edge>[] edges) {
 		this.vertexes = vertexes;
 		this.edges = edges;
