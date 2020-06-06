@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import algorithm.BreadthFirstSearch;
+import algorithm.BreadthFirstSearchForGraphs;
 import domain.Graph;
 import domain.Vertex;
 import inputgenerator.RandomGraphCreator;
 
 public class RandomGraphTesting {
 	public static void main(String[] args) throws Exception {
-		BreadthFirstSearch bfs = new BreadthFirstSearch();
+		BreadthFirstSearchForGraphs bfs = new BreadthFirstSearchForGraphs();
 		Graph random_graph = RandomGraphCreator.createRandomGraph(5);
 		System.out.println("Generated Graph:");
 		System.out.println(random_graph);
@@ -22,7 +22,7 @@ public class RandomGraphTesting {
 		List<Set<Vertex>> path = new ArrayList<>();
 		Vertex[] pred = new Vertex[random_graph.vertexNumber()];
 		double[] distances = new double[random_graph.vertexNumber()];
-		bfs.BreadFirstSearch(random_graph, init, random_graph.vertexNumber(), pred, path, distances);
+		bfs.BreadFirstSearchForGraphs(random_graph, init, random_graph.vertexNumber(), pred, path, distances);
 		for (int j = 0; j < distances.length; j++) {
 			System.out.println(String.format("The optimal path from %s to %s with path %s and has cost %.2f", init,
 					random_graph.getVertexes().get(j).toString(),

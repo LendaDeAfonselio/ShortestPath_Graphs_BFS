@@ -9,9 +9,24 @@ import domain.Edge;
 import domain.Graph;
 import domain.Vertex;
 
-public class BreadthFirstSearch {
 
-	public void BreadFirstSearch(Graph graph, Vertex origin, int totalVertexNumber, Vertex predecessors[],
+/**
+ * 
+ * @author Afonso
+ *
+ */
+public class BreadthFirstSearchForGraphs {
+
+	/**
+	 * 
+	 * @param graph
+	 * @param origin
+	 * @param totalVertexNumber
+	 * @param predecessors
+	 * @param shortestPaths
+	 * @param distances
+	 */
+	public void BreadFirstSearchForGraphs(Graph graph, Vertex origin, int totalVertexNumber, Vertex predecessors[],
 			List<Set<Vertex>> shortestPaths, double distances[]) {
 
 		// a queue to maintain queue of vertices whose
@@ -44,29 +59,15 @@ public class BreadthFirstSearch {
 				int toBeVisitedNodeIndex = toBeVisitedNode.getPosition();
 				double current = distances[currentVertexPosition] + e.getWeight();
 				Set<Vertex> currentPath = shortestPaths.get(currentVertexPosition);
-				
-				// if the node was already visited we wont need to explore it again later, but we might need to update values
-				if (!visited[toBeVisitedNodeIndex]) {
-					queue.add(toBeVisitedNode); // rever se isto eh necessario em casos onde jah se visitou o noh origem
-					// update values
-					visited[toBeVisitedNodeIndex] = true;
-					distances[toBeVisitedNodeIndex] = current;
-					predecessors[toBeVisitedNodeIndex] = vertex;
-
-					// create a copy of the current path and update it with the vertex that is the
-					// source of the edge
-					Set<Vertex> currentPathCopy = new HashSet<>(currentPath);
-					currentPathCopy.add(vertex);
-					shortestPaths.set(toBeVisitedNodeIndex, currentPathCopy);
-				}
 				// if the distance is better than what we currently have and if it is not a
 				// cycle we must alter the values
-				else if (current < distances[toBeVisitedNodeIndex] && !predecessors[toBeVisitedNodeIndex].equals(vertex)
+				if (!visited[toBeVisitedNodeIndex] || current < distances[toBeVisitedNodeIndex] && !predecessors[toBeVisitedNodeIndex].equals(vertex)
 						&& !currentPath.contains(toBeVisitedNode)) {
 					// update values
 					visited[toBeVisitedNodeIndex] = true;
 					distances[toBeVisitedNodeIndex] = current;
 					predecessors[toBeVisitedNodeIndex] = vertex;
+					queue.add(toBeVisitedNode); // even if we explored it previously we might need to alter the values
 
 					// create a copy of the current path and update it with the vertex that is the
 					// source of the edge

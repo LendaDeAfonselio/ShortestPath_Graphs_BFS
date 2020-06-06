@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import algorithm.BreadthFirstSearch;
+import algorithm.BreadthFirstSearchForGraphs;
 import domain.Graph;
 import domain.Vertex;
 
@@ -38,13 +38,13 @@ public class ExemploComCiclo {
 		System.out.println("Graph:");
 		System.out.println(graph);
 
-		BreadthFirstSearch bfs = new BreadthFirstSearch();
+		BreadthFirstSearchForGraphs bfs = new BreadthFirstSearchForGraphs();
 
 		List<Set<Vertex>> path = new ArrayList<>();
 		Vertex[] pred = new Vertex[graph.vertexNumber()];
 		double[] distances = new double[graph.vertexNumber()];
 
-		bfs.BreadFirstSearch(graph, a, graph.vertexNumber(), pred, path, distances);
+		bfs.BreadFirstSearchForGraphs(graph, a, graph.vertexNumber(), pred, path, distances);
 		for (int j = 0; j < distances.length; j++) {
 			System.out.println(String.format("The optimal path from %s to %s with path %s and has cost %.2f", a,
 					graph.getVertexes().get(j).toString(),

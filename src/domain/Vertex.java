@@ -3,9 +3,6 @@
  */
 package domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Class that represents a vertex of a graph
  *
