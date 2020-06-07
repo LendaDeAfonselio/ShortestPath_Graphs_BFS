@@ -13,16 +13,17 @@ import domain.Vertex;
 import inputgenerator.RandomGraphCreator;
 
 /**
- * Random Graph testing
- * It is recommended if possible to run 
+ * Random Graph testing It is recommended if possible to run parallel random
+ * graph for bigger inputs and the sync version for smaller ones
+ * 
  * @author Afonso
  *
  */
 public class RandomGraphTesting {
 	public static void main(String[] args) throws Exception {
 		BreadthFirstSearchForWeightedGraphs bfs = new BreadthFirstSearchForWeightedGraphs();
-		int vertex_number = 50;
-		Graph random_graph = RandomGraphCreator.createRandomGraph(vertex_number);
+		int vertex_number = 1000;
+		Graph random_graph = RandomGraphCreator.createRandomGraphParallel(vertex_number);
 
 		String toWrite = "";
 		// System.out.println("Generated Graph:");
@@ -35,8 +36,8 @@ public class RandomGraphTesting {
 		toWrite += "Results:\n";
 
 		// Get the Java runtime
-//		Runtime runtime = Runtime.getRuntime();
-//		runtime.gc();
+		Runtime runtime = Runtime.getRuntime();
+		runtime.gc();
 		long startTime = System.nanoTime();
 		List<Set<Vertex>> path = new ArrayList<>();
 		Vertex[] pred = new Vertex[random_graph.vertexNumber()];
@@ -44,7 +45,7 @@ public class RandomGraphTesting {
 
 		bfs.BreadFirstSearchForGraphs(random_graph, init, random_graph.vertexNumber(), pred, path, distances);
 		long endTime = System.nanoTime();
-		//long memory = runtime.totalMemory() - runtime.freeMemory();
+		long memory = runtime.totalMemory() - runtime.freeMemory();
 		for (int j = 0; j < distances.length; j++) {
 			String res = String.format("The optimal path from %s to %s with path %s and has cost %.2f", init,
 					random_graph.getVertexes().get(j).toString(),
@@ -58,8 +59,8 @@ public class RandomGraphTesting {
 		System.out.println(String.format("Search execution time: %d nanosecond", duration));
 		toWrite += String.format("Search execution time: %d nanosecond\n", duration);
 
-//		System.out.println(String.format("Memory used in search: %d\n", memory));
-//		toWrite += String.format("Memory used in search: %dbytes\n", memory);
+		System.out.println(String.format("Memory used in search: %d\n", memory));
+		toWrite += String.format("Memory used in search: %dbytes\n", memory);
 
 		File resultFile = new File("Results" + vertex_number + ".log");
 		if (resultFile.createNewFile()) {
