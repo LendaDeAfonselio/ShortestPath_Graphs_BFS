@@ -5,13 +5,17 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import algorithm.BreadthFirstSearchForGraphs;
+import algorithm.BreadthFirstSearchForWeightedGraphs;
 import domain.Graph;
 import domain.Vertex;
 
+/**
+ * A simple example used for early testing
+ *
+ */
 public class ExemploNormal {
+	
 	public static void main(String[] args) {
-		// cycle loop example - Should throw exception
 		Vertex a = new Vertex("a", 0);
 		Vertex b = new Vertex("b", 1);
 		Vertex c = new Vertex("c", 2);
@@ -33,7 +37,7 @@ public class ExemploNormal {
 		System.out.println("Graph:");
 		System.out.println(graph);
 
-		BreadthFirstSearchForGraphs bfs = new BreadthFirstSearchForGraphs();
+		BreadthFirstSearchForWeightedGraphs bfs = new BreadthFirstSearchForWeightedGraphs();
 
 		List<Set<Vertex>> path = new ArrayList<>();
 		Vertex[] pred = new Vertex[graph.vertexNumber()];

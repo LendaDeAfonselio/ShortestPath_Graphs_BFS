@@ -10,21 +10,29 @@ package domain;
 public class Vertex {
 	private String label;
 	private int position;
-
-	public Vertex(String label) {
-		this.label = label;
-	}
 	
+	/**
+	 * Constructor for vertex
+	 * @param label - the label of the vetex
+	 * @param position - the relative position in the graph
+	 */
 	public Vertex(String label, int position) {
 		this.label = label;
 		this.position = position;
 	}
-	// getters, setters, equals...
+
+	/**
+	 * Constructor for vertex
+	 * @param label- the label of the vertex
+	 */
+	public Vertex(String label) {
+		this.label = label;
+	}
 
 	public void setPosition(int position) {
 		this.position = position;
 	}
-	
+
 	public int getPosition() {
 		return position;
 	}
@@ -32,8 +40,9 @@ public class Vertex {
 	public String getLabel() {
 		return label;
 	}
-	
-	public boolean equals(Vertex x, Object o) {
+
+	@Override
+	public boolean equals(Object o) {
 		if (!(o instanceof Vertex)) {
 			return false;
 		}

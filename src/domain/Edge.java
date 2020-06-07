@@ -4,14 +4,19 @@
 package domain;
 
 /**
- * @author Afonso
- *
+ * Class that represents an edge of the graph
  */
 public class Edge {
 	private Vertex source;
 	private Vertex destiny;
 	private double weight;
 
+	/**
+	 * Constructor for an Edge, an edge is the "link" between two vertexes (for example - between A and B)
+	 * @param source - the source vertex (for the example would be A)
+	 * @param destiny - the destiny vertex (for the example would be B)
+	 * @param weight - the weight of the path between the vertex
+	 */
 	public Edge(Vertex source, Vertex destiny, double weight) {
 		this.source = source;
 		this.destiny = destiny;
